@@ -7,10 +7,12 @@ describe('sumArgs()', function() {
     })
     test('should return single arg when passed with a single arg', function(){
         expect(sumArgs(10)).toBe(10)
+        expect(sumArgs(15)).toBe(15)
         console.log(sumOfArgs)
     })
     test('should return sum of 2 args when passed 2 args', function(){
         expect(sumArgs(2, 2)).toBe(4)
+        expect(sumArgs(10, 10)).toBe(100)
         console.log(sumOfArgs)
     })
 });
