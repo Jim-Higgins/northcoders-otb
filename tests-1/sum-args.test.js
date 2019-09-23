@@ -2,7 +2,10 @@ const sumArgs = require('./sum-args');
 
 describe('sumArgs()', function() {
     test('when passed no arguments should return 0', function(){
-        expect(sumArgs()).toBe(0)
+        expect(sumArgs(0)).toBe(0)
+    })
+    test('should return single arg when passed with a single arg', function(){
+        expect(sumArgs(10)).toBe(10)
     })
 });
 

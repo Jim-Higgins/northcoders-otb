@@ -1,5 +1,5 @@
-function sumArgs() {
-    return 0
+function sumArgs(firstArg) {
+    return firstArg
 }
 
 module.exports = sumArgs;
