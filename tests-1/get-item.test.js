@@ -1,4 +1,11 @@
-function getItem(arr, index) {}
+const getItem = require('./get-item');
+
+describe('getItem()', function() {
+  test('for an index of 0, returns the first item', function() {
+    expect(getItem(["a", "b", "c"], 0)).toBe("a");
+    expect(getItem(["x", "y", "z"], 0)).toBe("x");
+  });
+});
 
 /*
 
