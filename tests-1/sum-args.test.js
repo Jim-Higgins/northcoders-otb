@@ -1,4 +1,16 @@
-function sumArgs() {}
+const sumArgs = require('./sum-args');
+
+describe('sumArgs()', function() {
+    test('', function(){
+
+    })
+});
+
+
+
+
+
+
 
 /*
 
