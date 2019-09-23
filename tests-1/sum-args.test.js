@@ -1,8 +1,8 @@
 const sumArgs = require('./sum-args');
 
 describe('sumArgs()', function() {
-    test('', function(){
-
+    test('when passed no arguments should return 0', function(){
+        expect(sumArgs()).toBe(0)
     })
 });
 
