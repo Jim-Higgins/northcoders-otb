@@ -1,4 +1,4 @@
-const {reverseItems, removePersonWithID} = require('./pure');
+const {reverseItems, removePersonWithID, updateTasks} = require('./pure');
 
 describe('reverseItems()', () => {
   it('should return an empty array', () => {
@@ -67,4 +67,10 @@ describe('removePersonWithID()', () => {
         { id: 7, name: 'tom' },
         { id: 8, name: 'alex' }]);
       });
+});
+
+describe('updateTasks()', () => {
+  it('Returns a new object', () => {
+    expect(updateTasks({})).toEqual({});
+  });
 });

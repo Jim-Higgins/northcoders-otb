@@ -13,4 +13,6 @@ function removePersonWithID(inputArray, inputId = 0) {
     return inputArray.filter(person => person.id != inputId)
 }
 
-module.exports = { reverseItems, removePersonWithID };
+function updateTasks () {};
+
+module.exports = { reverseItems, removePersonWithID, updateTasks };
