@@ -13,8 +13,11 @@ function removePersonWithID(inputArray, inputId = 0) {
     return inputArray.filter(person => person.id != inputId)
 }
 
-function updateTasks (input) {
+function updateTasks (input, ...newTasks) {
   let output = {...input};
+  if (input.tasks && newTasks) {
+    output.tasks = [...input.tasks, ...newTasks]
+  };
   return output;
 };
 
