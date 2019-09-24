@@ -1,4 +1,4 @@
-const reverseItems = require('./pure');
+const {reverseItems, removePersonWithID} = require('./pure');
 
 describe('reverseItems()', () => {
   it('should return an empty array', () => {
@@ -25,6 +25,10 @@ describe('reverseItems()', () => {
     expect(reverseItems(['a', 'b', 'c'])).toEqual(['c', 'b', 'a']);
     expect(reverseItems(['a', 'b', 'c', 5, 18, 'jim'])).toEqual(['jim', 18, 5, 'c', 'b', 'a']);
   });
+});
 
-
+describe('removePersonWithID()', () => {
+    it('should return an empty array', () => {
+        expect(removePersonWithID([])).toEqual([]);
+      });
 });
