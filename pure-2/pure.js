@@ -1,3 +1,5 @@
-function reverseItems(){}
+function reverseItems() {
+  return [];
+}
 
-module.exports = reverseItems
+module.exports = reverseItems;

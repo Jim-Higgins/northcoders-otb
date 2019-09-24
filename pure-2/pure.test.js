@@ -1,7 +1,7 @@
-const reverseItems = require('./pure')
+const reverseItems = require('./pure');
 
-describe('', () => {
-    it('', () => {
-        
-    });
+describe('reverseItems()', () => {
+  it('should return an empty array', () => {
+    expect(reverseItems([])).toEqual([]);
+  });
 });
