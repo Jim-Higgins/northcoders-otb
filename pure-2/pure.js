@@ -8,8 +8,12 @@ function reverseItems(input) {
   return newInput;
 }
 
+
+
+
 function removePersonWithID(input) {
-  return [];
+    const newInput =[...input]
+  return newInput;
 }
 
 module.exports = { reverseItems, removePersonWithID };
