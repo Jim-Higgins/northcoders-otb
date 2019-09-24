@@ -71,6 +71,15 @@ describe('removePersonWithID()', () => {
 
 describe('updateTasks()', () => {
   it('Returns a new object', () => {
-    expect(updateTasks({})).toEqual({});
+    let input = {};
+    expect(updateTasks(input)).toEqual({});
+    expect(updateTasks(input)).not.toBe(input);
   });
+
+  it('Returns a new object', () => {
+    let input = { name: 'Anat', tasks: ['feed Schnitzel', 'Go to pottery'] };
+    expect(updateTasks(input)).toEqual({ name: 'Anat', tasks: ['feed Schnitzel', 'Go to pottery'] });
+  });
+
+
 });
