@@ -1,6 +1,6 @@
 function reverseItems(input) {
-
-  return input;
+    const newInput = [...input]
+  return newInput;
 }
 
 module.exports = reverseItems;

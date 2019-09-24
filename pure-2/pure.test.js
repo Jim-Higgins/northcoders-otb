@@ -9,4 +9,9 @@ describe('reverseItems()', () => {
     let input = ['a']
     expect(reverseItems(input)).toEqual(['a']);
   });
+
+  it('should return an new array with expected output', () => {
+    let input = ['a']
+    expect(reverseItems(input)).not.toBe(input);
+  });
 });
