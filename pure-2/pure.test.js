@@ -1,4 +1,4 @@
-const {reverseItems, removePersonWithID, updateTasks} = require('./pure');
+const {reverseItems, removePersonWithID, updateTasks, raiseSalaries} = require('./pure');
 
 describe('reverseItems()', () => {
   it('should return an empty array', () => {
@@ -94,4 +94,12 @@ describe('updateTasks()', () => {
     const output = updateTasks(person, 'feed mitch', 'slap mitch')
     expect(output.tasks).not.toBe(person.tasks)
   });
+});
+
+describe('raiseSalaries()', () => {
+    it('Returns a new object', () => {
+        const input = [{}];
+        expect(raiseSalaries(input)).toEqual([{}]);
+        expect(raiseSalaries(input)).not.toBe(input);
+      });
 });

@@ -21,4 +21,8 @@ function updateTasks (input, ...newTasks) {
   return output;
 };
 
-module.exports = { reverseItems, removePersonWithID, updateTasks };
+function raiseSalaries(input){
+ return [{}]
+}
+
+module.exports = { reverseItems, removePersonWithID, updateTasks, raiseSalaries };
