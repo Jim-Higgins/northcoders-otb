@@ -8,12 +8,9 @@ function reverseItems(input) {
   return newInput;
 }
 
+function removePersonWithID(inputArray, inputId = 0) {
 
-
-
-function removePersonWithID(input) {
-    const newInput =[...input]
-  return newInput;
+    return inputArray.filter(person => person.id != inputId)
 }
 
 module.exports = { reverseItems, removePersonWithID };

@@ -31,12 +31,40 @@ describe('removePersonWithID()', () => {
     it('should return an empty array', () => {
         expect(removePersonWithID([])).toEqual([]);
       });
+
       it('should return an new array with expected output', () => {
         let input = [{ id: 1, name: 'foluso' }]
         expect(removePersonWithID(input)).not.toBe(input);
       });
+
+    
       it('should return an equal array when given a one item array', () => {
         let input = [{ id: 1, name: 'foluso' }];
         expect(removePersonWithID(input)).toEqual([{ id: 1, name: 'foluso' }]);
+      });
+
+      it('should return one object form the input', () => {
+        let input = [{ id: 1, name: 'foluso' }];
+        expect(removePersonWithID(input, 1)).toEqual([]);
+      });
+
+      it('should reomve one object form the input', () => {
+        let input = [    
+        { id: 1, name: 'foluso' },
+        { id: 2, name: 'suneet' },
+        { id: 3, name: 'paul r' },
+        { id: 4, name: 'jonny' },
+        { id: 5, name: 'anat' },
+        { id: 6, name: 'sam' },
+        { id: 7, name: 'tom' },
+        { id: 8, name: 'alex' }];
+        expect(removePersonWithID(input, 4)).toEqual([   
+        { id: 1, name: 'foluso' },
+        { id: 2, name: 'suneet' },
+        { id: 3, name: 'paul r' },
+        { id: 5, name: 'anat' },
+        { id: 6, name: 'sam' },
+        { id: 7, name: 'tom' },
+        { id: 8, name: 'alex' }]);
       });
 });
