@@ -1,4 +1,9 @@
-const {reverseItems, removePersonWithID, updateTasks, raiseSalaries} = require('./pure');
+const {
+  reverseItems,
+  removePersonWithID,
+  updateTasks,
+  raiseSalaries,
+} = require('./pure');
 
 describe('reverseItems()', () => {
   it('should return an empty array', () => {
@@ -11,7 +16,7 @@ describe('reverseItems()', () => {
   });
 
   it('should return an new array with expected output', () => {
-    const input = ['a']
+    const input = ['a'];
     expect(reverseItems(input)).not.toBe(input);
   });
 
@@ -23,50 +28,58 @@ describe('reverseItems()', () => {
 
   it('should reverse the order of the input array', () => {
     expect(reverseItems(['a', 'b', 'c'])).toEqual(['c', 'b', 'a']);
-    expect(reverseItems(['a', 'b', 'c', 5, 18, 'jim'])).toEqual(['jim', 18, 5, 'c', 'b', 'a']);
+    expect(reverseItems(['a', 'b', 'c', 5, 18, 'jim'])).toEqual([
+      'jim',
+      18,
+      5,
+      'c',
+      'b',
+      'a',
+    ]);
   });
 });
 
 describe('removePersonWithID()', () => {
-    it('should return an empty array', () => {
-        expect(removePersonWithID([])).toEqual([]);
-      });
+  it('should return an empty array', () => {
+    expect(removePersonWithID([])).toEqual([]);
+  });
 
-      it('should return an new array with expected output', () => {
-        const input = [{ id: 1, name: 'foluso' }]
-        expect(removePersonWithID(input)).not.toBe(input);
-      });
+  it('should return an new array with expected output', () => {
+    const input = [{ id: 1, name: 'foluso' }];
+    expect(removePersonWithID(input)).not.toBe(input);
+  });
 
-    
-      it('should return an equal array when given a one item array', () => {
-        const input = [{ id: 1, name: 'foluso' }];
-        expect(removePersonWithID(input)).toEqual([{ id: 1, name: 'foluso' }]);
-      });
+  it('should return an equal array when given a one item array', () => {
+    const input = [{ id: 1, name: 'foluso' }];
+    expect(removePersonWithID(input)).toEqual([{ id: 1, name: 'foluso' }]);
+  });
 
-      it('should return one object form the input', () => {
-        const input = [{ id: 1, name: 'foluso' }];
-        expect(removePersonWithID(input, 1)).toEqual([]);
-      });
+  it('should return one object form the input', () => {
+    const input = [{ id: 1, name: 'foluso' }];
+    expect(removePersonWithID(input, 1)).toEqual([]);
+  });
 
-      it('should reomve one object form the input', () => {
-        const input = [    
-        { id: 1, name: 'foluso' },
-        { id: 2, name: 'suneet' },
-        { id: 3, name: 'paul r' },
-        { id: 4, name: 'jonny' },
-        { id: 5, name: 'anat' },
-        { id: 6, name: 'sam' },
-        { id: 7, name: 'tom' },
-        { id: 8, name: 'alex' }];
-        expect(removePersonWithID(input, 4)).toEqual([   
-        { id: 1, name: 'foluso' },
-        { id: 2, name: 'suneet' },
-        { id: 3, name: 'paul r' },
-        { id: 5, name: 'anat' },
-        { id: 6, name: 'sam' },
-        { id: 7, name: 'tom' },
-        { id: 8, name: 'alex' }]);
-      });
+  it('should reomve one object form the input', () => {
+    const input = [
+      { id: 1, name: 'foluso' },
+      { id: 2, name: 'suneet' },
+      { id: 3, name: 'paul r' },
+      { id: 4, name: 'jonny' },
+      { id: 5, name: 'anat' },
+      { id: 6, name: 'sam' },
+      { id: 7, name: 'tom' },
+      { id: 8, name: 'alex' },
+    ];
+    expect(removePersonWithID(input, 4)).toEqual([
+      { id: 1, name: 'foluso' },
+      { id: 2, name: 'suneet' },
+      { id: 3, name: 'paul r' },
+      { id: 5, name: 'anat' },
+      { id: 6, name: 'sam' },
+      { id: 7, name: 'tom' },
+      { id: 8, name: 'alex' },
+    ]);
+  });
 });
 
 describe('updateTasks()', () => {
@@ -78,39 +91,81 @@ describe('updateTasks()', () => {
 
   it('Returns a new object with the same key value pairs', () => {
     const input = { name: 'Anat', tasks: ['feed Schnitzel', 'Go to pottery'] };
-    expect(updateTasks(input)).toEqual({ name: 'Anat', tasks: ['feed Schnitzel', 'Go to pottery'] });
+    expect(updateTasks(input)).toEqual({
+      name: 'Anat',
+      tasks: ['feed Schnitzel', 'Go to pottery'],
+    });
   });
 
   it('Returns a new object with updated tasks value when give one task', () => {
-    expect(updateTasks({ name: 'Anat', tasks: ['feed Schnitzel', 'Go to pottery'] }, 'feed mitch')).toEqual({ name: 'Anat', tasks: ['feed Schnitzel', 'Go to pottery', 'feed mitch'] });
+    expect(
+      updateTasks(
+        { name: 'Anat', tasks: ['feed Schnitzel', 'Go to pottery'] },
+        'feed mitch'
+      )
+    ).toEqual({
+      name: 'Anat',
+      tasks: ['feed Schnitzel', 'Go to pottery', 'feed mitch'],
+    });
   });
 
   it('Returns a new object with updated tasks value when give multiple new tasks', () => {
-    expect(updateTasks({ name: 'Anat', tasks: ['feed Schnitzel', 'Go to pottery'] }, 'feed mitch', 'slap mitch')).toEqual({ name: 'Anat', tasks: ['feed Schnitzel', 'Go to pottery', 'feed mitch', 'slap mitch'] });
+    expect(
+      updateTasks(
+        { name: 'Anat', tasks: ['feed Schnitzel', 'Go to pottery'] },
+        'feed mitch',
+        'slap mitch'
+      )
+    ).toEqual({
+      name: 'Anat',
+      tasks: ['feed Schnitzel', 'Go to pottery', 'feed mitch', 'slap mitch'],
+    });
   });
 
   it('Does not mutate the tasks value', () => {
-    const person = { name: 'Anat', tasks: ['feed Schnitzel', 'Go to pottery'] }
-    const output = updateTasks(person, 'feed mitch', 'slap mitch')
-    expect(output.tasks).not.toBe(person.tasks)
+    const person = { name: 'Anat', tasks: ['feed Schnitzel', 'Go to pottery'] };
+    const output = updateTasks(person, 'feed mitch', 'slap mitch');
+    expect(output.tasks).not.toBe(person.tasks);
   });
 });
 
 describe('raiseSalaries()', () => {
-    it('Returns a new object', () => {
-        const input = [{}];
-        expect(raiseSalaries(input)).toEqual([{}]);
-        expect(raiseSalaries(input)).not.toBe(input);
-      });
+  it('Returns a new object', () => {
+    const input = [{}];
+    expect(raiseSalaries(input)).toEqual([{}]);
+    expect(raiseSalaries(input)).not.toBe(input);
+  });
 
-      it('should make a new object in the output', () => {
-          const input = [{ name: 'Alice', salary: 3000 }];
-          expect(raiseSalaries(input)).toEqual([{ name: 'Alice', salary: 3000 }]);
-          expect(raiseSalaries(input)[0]).not.toBe(input[0])
-      });
+  it('should make a new object in the output', () => {
+    const input = [{ name: 'Alice', salary: 3000 }];
+    expect(raiseSalaries(input)).toEqual([{ name: 'Alice', salary: 3000 }]);
+    expect(raiseSalaries(input)[0]).not.toBe(input[0]);
+  });
 
-      it('should return an empty array when given empty array', () => {
-          const input = []
-          expect(raiseSalaries(input)).toEqual([])
-      });
+  it('should return an empty array when given empty array', () => {
+    const input = [];
+    expect(raiseSalaries(input)).toEqual([]);
+  });
+
+  it('should increase the salary by set number', () => {
+    const input = [{ name: 'Alice', salary: 3000 }];
+    const salaryRaise = 10;
+    expect(raiseSalaries(input, salaryRaise)).toEqual([
+      { name: 'Alice', salary: 3300 },
+    ]);
+  });
+
+  it('should increase the salary by set number with multiply objects', () => {
+    const input = [
+      { name: 'Alice', salary: 3000 },
+      { name: 'Bob', salary: 2000 },
+      { name: 'Vel', salary: 4500 },
+    ];
+    const salaryRaise = 10;
+    expect(raiseSalaries(input, salaryRaise)).toEqual([
+      { name: 'Alice', salary: 3300 },
+      { name: 'Bob', salary: 2200 },
+      { name: 'Vel', salary: 4950 },
+    ]);
+  });
 });

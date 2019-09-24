@@ -20,10 +20,18 @@ function updateTasks(input, ...newTasks) {
   return output;
 }
 
-function raiseSalaries(input) {
+function raiseSalaries(input, salaryRaise) {
   let output = [...input];
-  if (input.length) {
-    output[0] = { ...output[0] };
+
+  for (let i = 0; i < input.length; i++) {
+
+    if (input.length) {
+      output[i] = { ...output[i] };
+      if (output[i].salary && salaryRaise) {
+        output[i].salary =
+          (salaryRaise / 100) * output[i].salary + output[i].salary;
+      }
+    }
   }
 
   return output;
