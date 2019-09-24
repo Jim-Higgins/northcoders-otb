@@ -31,4 +31,8 @@ describe('removePersonWithID()', () => {
     it('should return an empty array', () => {
         expect(removePersonWithID([])).toEqual([]);
       });
+      it('should return an new array with expected output', () => {
+        let input = [{ id: 1, name: 'foluso' }]
+        expect(removePersonWithID(input)).not.toBe(input);
+      });
 });
