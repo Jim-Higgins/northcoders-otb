@@ -102,4 +102,15 @@ describe('raiseSalaries()', () => {
         expect(raiseSalaries(input)).toEqual([{}]);
         expect(raiseSalaries(input)).not.toBe(input);
       });
+
+      it('should make a new object in the output', () => {
+          const input = [{ name: 'Alice', salary: 3000 }];
+          expect(raiseSalaries(input)).toEqual([{ name: 'Alice', salary: 3000 }]);
+          expect(raiseSalaries(input)[0]).not.toBe(input[0])
+      });
+
+      it('should return an empty array when given empty array', () => {
+          const input = []
+          expect(raiseSalaries(input)).toEqual([])
+      });
 });

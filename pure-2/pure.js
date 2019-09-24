@@ -9,20 +9,29 @@ function reverseItems(input) {
 }
 
 function removePersonWithID(inputArray, inputId = 0) {
-
-    return inputArray.filter(person => person.id != inputId)
+  return inputArray.filter((person) => person.id != inputId);
 }
 
-function updateTasks (input, ...newTasks) {
-  let output = {...input};
+function updateTasks(input, ...newTasks) {
+  let output = { ...input };
   if (input.tasks && newTasks) {
-    output.tasks = [...input.tasks, ...newTasks]
-  };
+    output.tasks = [...input.tasks, ...newTasks];
+  }
   return output;
-};
-
-function raiseSalaries(input){
- return [{}]
 }
 
-module.exports = { reverseItems, removePersonWithID, updateTasks, raiseSalaries };
+function raiseSalaries(input) {
+  let output = [...input];
+  if (input.length) {
+    output[0] = { ...output[0] };
+  }
+
+  return output;
+}
+
+module.exports = {
+  reverseItems,
+  removePersonWithID,
+  updateTasks,
+  raiseSalaries,
+};
