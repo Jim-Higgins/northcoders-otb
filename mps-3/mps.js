@@ -23,7 +23,9 @@ function addOfficeCounts (mps) {
 
 function removeOffices(mps) {
   if(!mps.length) return [];
-  const { office, ...restOfTheMp } = mps[0]
-  return [{...restOfTheMp}];
+  return mps.map(mp => {
+    const { office, ...restOfTheMp } = mp
+  return {...restOfTheMp};
+  })
 };
 module.exports = { addFirstAndLastNames, addOfficeCounts, removeOffices };

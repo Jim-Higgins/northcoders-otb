@@ -469,5 +469,57 @@ describe('MP utils', () => {
         ],
       }])
     });
+    test('removes the oiffice key for multiple objects', () => {
+      const input = [
+        {
+          member_id: '41797',
+          person_id: '11500',
+          name: 'Theresa Villiers',
+          party: 'Conservative',
+          constituency: 'Chipping Barnet',
+          office: [
+            {
+              dept: 'National Security Strategy (Joint Committee)',
+              position: 'Member',
+              from_date: '2017-10-30',
+              to_date: '9999-12-31',
+            },
+          ],
+        },
+        {
+          member_id: '41560',
+          person_id: '11884',
+          name: 'Greg Clark',
+          party: 'Conservative',
+          constituency: 'Tunbridge Wells',
+          office: [
+            {
+              dept: '',
+              position:
+                'The Secretary of State for Business, Energy and Industrial Strategy ',
+              from_date: '2016-07-14',
+              to_date: '9999-12-31',
+            },
+          ],
+        },
+      ]
+      const output = [
+        {
+          member_id: '41797',
+          person_id: '11500',
+          name: 'Theresa Villiers',
+          party: 'Conservative',
+          constituency: 'Chipping Barnet',
+        },
+          {
+          member_id: '41560',
+          person_id: '11884',
+          name: 'Greg Clark',
+          party: 'Conservative',
+          constituency: 'Tunbridge Wells',
+        }
+      ]
+      expect(removeOffices(input)).toEqual(output)
+    });
   });
 });
