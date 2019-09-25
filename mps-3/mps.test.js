@@ -175,6 +175,41 @@ describe('MP utils', () => {
       ])
       
     });
+    test('check that original input does not mutate', () => {
+      const input = [
+        {
+          member_id: '41899',
+          person_id: '25227',
+          party: 'Conservative',
+          constituency: 'Newark',
+          office: [
+            {
+              dept: '',
+              position: 'The Exchequer Secretary',
+              from_date: '2018-01-09',
+              to_date: '9999-12-31',
+            },
+          ],
+        },
+      ];
+      addFirstAndLastNames(input);
+      expect(input).toEqual([
+        {
+          member_id: '41899',
+          person_id: '25227',
+          party: 'Conservative',
+          constituency: 'Newark',
+          office: [
+            {
+              dept: '',
+              position: 'The Exchequer Secretary',
+              from_date: '2018-01-09',
+              to_date: '9999-12-31',
+            },
+          ],
+        },
+      ])
+    });
   });
   describe('addOfficeCounts()', () => {
     test('return a empty array when passed an empty array', () => {
