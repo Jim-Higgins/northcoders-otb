@@ -15,6 +15,15 @@ function addFirstAndLastNames(input) {
 }
 
 function addOfficeCounts (input) {
-return [];
+  if(!input[0]) return [];
+  
+  const result = [];
+  if(input[0].office) {
+    const officeCount = input[0].office.length;
+    result.push({...input[0], officeCount})
+  } else {
+    result.push({...input[0]})
+  }
+  return result;
 }
 module.exports = { addFirstAndLastNames, addOfficeCounts };

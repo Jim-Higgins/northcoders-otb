@@ -184,5 +184,49 @@ describe('MP utils', () => {
       const input = [];
       expect(addOfficeCounts(input)).not.toBe(input)
     });
+    test('returns a new object when passed an empty object', () => {
+      const input = [{}];
+      expect(addOfficeCounts(input)[0]).not.toBe(input[0])
+    });
+    test('should return an empty object when given an empty object', () => {
+      let input = [{}];
+      expect(addOfficeCounts(input)).toEqual([{}]);
+    });
+    test('should return a new array with one object with a office count property added', () => {
+      let input = [
+        {
+          member_id: '41797',
+          person_id: '11500',
+          name: 'Theresa Villiers',
+          party: 'Conservative',
+          constituency: 'Chipping Barnet',
+          office: [
+            {
+              dept: 'National Security Strategy (Joint Committee)',
+              position: 'Member',
+              from_date: '2017-10-30',
+              to_date: '9999-12-31',
+            },
+          ],
+        },
+      ];
+      expect(addOfficeCounts(input)).toEqual([
+        {
+          member_id: '41797',
+          person_id: '11500',
+          name: 'Theresa Villiers',
+          party: 'Conservative',
+          constituency: 'Chipping Barnet',
+          office: [
+            {
+              dept: 'National Security Strategy (Joint Committee)',
+              position: 'Member',
+              from_date: '2017-10-30',
+              to_date: '9999-12-31',
+            },
+          ],
+          officeCount: 1
+        },])
+    })
   });
 });
