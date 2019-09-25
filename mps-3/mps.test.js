@@ -227,6 +227,43 @@ describe('MP utils', () => {
           ],
           officeCount: 1
         },])
-    })
+    });
+    test('check that original input has not mutated', () => {
+      const input = [
+        {
+          member_id: '41797',
+          person_id: '11500',
+          name: 'Theresa Villiers',
+          party: 'Conservative',
+          constituency: 'Chipping Barnet',
+          office: [
+            {
+              dept: 'National Security Strategy (Joint Committee)',
+              position: 'Member',
+              from_date: '2017-10-30',
+              to_date: '9999-12-31',
+            },
+          ],
+        },
+      ];
+      addOfficeCounts(input);
+      expect(input).toEqual([
+        {
+          member_id: '41797',
+          person_id: '11500',
+          name: 'Theresa Villiers',
+          party: 'Conservative',
+          constituency: 'Chipping Barnet',
+          office: [
+            {
+              dept: 'National Security Strategy (Joint Committee)',
+              position: 'Member',
+              from_date: '2017-10-30',
+              to_date: '9999-12-31',
+            },
+          ],
+        },
+      ])
+    });
   });
 });
