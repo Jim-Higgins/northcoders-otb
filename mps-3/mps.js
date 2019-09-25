@@ -1,31 +1,23 @@
-function addFirstAndLastNames(input) {
-  const result = [];
-  if (!input[0]) return [];
+function addFirstAndLastNames(mps) {
 
-  for (let index = 0; index < input.length; index++) {
-    if (input[index].name) {
-      let [firstName, lastName] = input[index].name.split(' ');
-      result.push({ ...input[index], firstName, lastName });
-    } else {
-      result.push({ ...input[index] });
-    }
-  }
-
-  return result;
+  return mps.map(mp => {
+    if (mp.name) {
+          let [firstName, lastName] = mp.name.split(' ');
+          return { ...mp, firstName, lastName };
+        } else {
+          return { ...mp };
+        }
+  })
 }
 
-function addOfficeCounts (input) {
-  if(!input[0]) return [];
-  
-  const result = [];
-  for (let index = 0; index < input.length; index++) {
-    if(input[index].office) {
-      const officeCount = input[index].office.length;
-      result.push({...input[index], officeCount})
+function addOfficeCounts (mps) {
+  return mps.map(mp => {
+    if(mp.office) {
+      const officeCount = mp.office.length;
+      return {...mp, officeCount}
     } else {
-      result.push({...input[index]})
+      return {...mp}
     }
-  }
-  return result;
+  })
 }
 module.exports = { addFirstAndLastNames, addOfficeCounts };
