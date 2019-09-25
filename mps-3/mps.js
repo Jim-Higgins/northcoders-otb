@@ -20,4 +20,10 @@ function addOfficeCounts (mps) {
     }
   })
 }
-module.exports = { addFirstAndLastNames, addOfficeCounts };
+
+function removeOffices(mps) {
+  if(!mps.length) return [];
+  const { office, ...restOfTheMp } = mps[0]
+  return [{...restOfTheMp}];
+};
+module.exports = { addFirstAndLastNames, addOfficeCounts, removeOffices };

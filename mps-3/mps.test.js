@@ -1,4 +1,4 @@
-const { addFirstAndLastNames, addOfficeCounts } = require('./mps');
+const { addFirstAndLastNames, addOfficeCounts, removeOffices } = require('./mps');
 
 describe('MP utils', () => {
   describe('addFirstAndLastNames()', () => {
@@ -392,6 +392,82 @@ describe('MP utils', () => {
         },
       ]
       expect(addOfficeCounts(input)).toEqual(output)
+    });
+  });
+
+  describe('removeOffices()', () => {
+    test('return a empty array when passed an empty array', () => {
+      expect(removeOffices([])).toEqual([])
+    });
+    test('return a new array when passed an empty array', () => {
+      const input = [{}]
+      expect(removeOffices(input)).not.toBe(input)
+    });
+    it('should return an empty object when given an empty object', () => {
+      let input = [{}];
+      expect(removeOffices(input)).toEqual([{}]);
+    });
+    test('returns a new object when passed an empty object', () => {
+      const input = [{}];
+      expect(removeOffices(input)[0]).not.toBe(input[0])
+    });
+    test('it removes the office key for one object', () => {
+      const input = [{
+        member_id: '41797',
+        person_id: '11500',
+        name: 'Theresa Villiers',
+        party: 'Conservative',
+        constituency: 'Chipping Barnet',
+        office: [
+          {
+            dept: 'National Security Strategy (Joint Committee)',
+            position: 'Member',
+            from_date: '2017-10-30',
+            to_date: '9999-12-31',
+          },
+        ],
+      }]
+      const output = [{
+          member_id: '41797',
+          person_id: '11500',
+          name: 'Theresa Villiers',
+          party: 'Conservative',
+          constituency: 'Chipping Barnet',
+      }];
+      expect(removeOffices(input)).toEqual(output)
+    })
+    test('it does not mutate the input object or array', () => {
+      const input = [{
+        member_id: '41797',
+        person_id: '11500',
+        name: 'Theresa Villiers',
+        party: 'Conservative',
+        constituency: 'Chipping Barnet',
+        office: [
+          {
+            dept: 'National Security Strategy (Joint Committee)',
+            position: 'Member',
+            from_date: '2017-10-30',
+            to_date: '9999-12-31',
+          },
+        ],
+      }]
+      removeOffices(input);
+      expect(input).toEqual([{
+        member_id: '41797',
+        person_id: '11500',
+        name: 'Theresa Villiers',
+        party: 'Conservative',
+        constituency: 'Chipping Barnet',
+        office: [
+          {
+            dept: 'National Security Strategy (Joint Committee)',
+            position: 'Member',
+            from_date: '2017-10-30',
+            to_date: '9999-12-31',
+          },
+        ],
+      }])
     });
   });
 });
