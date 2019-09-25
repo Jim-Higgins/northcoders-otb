@@ -13,4 +13,8 @@ function addFirstAndLastNames(input) {
 
   return result;
 }
-module.exports = { addFirstAndLastNames };
+
+function addOfficeCounts (input) {
+return [];
+}
+module.exports = { addFirstAndLastNames, addOfficeCounts };

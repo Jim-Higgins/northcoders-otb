@@ -1,4 +1,4 @@
-const { addFirstAndLastNames } = require('./mps');
+const { addFirstAndLastNames, addOfficeCounts } = require('./mps');
 
 describe('MP utils', () => {
   describe('addFirstAndLastNames()', () => {
@@ -174,6 +174,15 @@ describe('MP utils', () => {
         },
       ])
       
+    });
+  });
+  describe('addOfficeCounts()', () => {
+    test('return a empty array when passed an empty array', () => {
+      expect(addOfficeCounts([])).toEqual([])
+    });
+    test('returns a new array', () => {
+      const input = [];
+      expect(addOfficeCounts(input)).not.toBe(input)
     });
   });
 });
