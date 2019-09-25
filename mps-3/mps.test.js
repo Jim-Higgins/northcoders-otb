@@ -15,5 +15,10 @@ describe('MP utils', () => {
       let input = [{}]
       expect(addFirstAndLastNames(input)).toEqual([{}])
     });
+
+    it('should return a new object', () => {
+      let input = [{}]
+      expect(addFirstAndLastNames(input)[0]).not.toBe(input[0])
+    });
   });
 });
