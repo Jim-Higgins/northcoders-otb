@@ -44,8 +44,8 @@ describe('MP utils', () => {
           member_id: '41899',
           person_id: '25227',
           name: 'Robert Jenrick',
-          firstName : 'Robert',
-          lastName : 'Jenrick',
+          firstName: 'Robert',
+          lastName: 'Jenrick',
           party: 'Conservative',
           constituency: 'Newark',
           office: [
@@ -60,6 +60,24 @@ describe('MP utils', () => {
       ]);
     });
 
-
+    it('should return the same input if input has no name field', () => {
+      let input = [
+        {
+          member_id: '41899',
+          person_id: '25227',
+          party: 'Conservative',
+          constituency: 'Newark',
+          office: [
+            {
+              dept: '',
+              position: 'The Exchequer Secretary',
+              from_date: '2018-01-09',
+              to_date: '9999-12-31',
+            },
+          ],
+        },
+      ];
+      expect(addFirstAndLastNames(input)).toEqual(input);
+    });
   });
 });
