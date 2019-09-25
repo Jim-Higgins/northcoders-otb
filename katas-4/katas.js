@@ -1,5 +1,5 @@
-function herdTheBabies(){
-    return ''
+function herdTheBabies(babies){
+    return babies
 }
 
 module.exports = { herdTheBabies}
