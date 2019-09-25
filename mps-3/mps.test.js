@@ -10,5 +10,10 @@ describe('MP utils', () => {
       let input = []
       expect(addFirstAndLastNames(input)).not.toBe(input)
     });
+
+    it('should return an empty object when given an empty object', () => {
+      let input = [{}]
+      expect(addFirstAndLastNames(input)).toEqual([{}])
+    });
   });
 });
