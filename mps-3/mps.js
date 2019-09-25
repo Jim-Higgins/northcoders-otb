@@ -18,11 +18,13 @@ function addOfficeCounts (input) {
   if(!input[0]) return [];
   
   const result = [];
-  if(input[0].office) {
-    const officeCount = input[0].office.length;
-    result.push({...input[0], officeCount})
-  } else {
-    result.push({...input[0]})
+  for (let index = 0; index < input.length; index++) {
+    if(input[index].office) {
+      const officeCount = input[index].office.length;
+      result.push({...input[index], officeCount})
+    } else {
+      result.push({...input[index]})
+    }
   }
   return result;
 }

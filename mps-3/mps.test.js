@@ -300,5 +300,98 @@ describe('MP utils', () => {
         },
       ])
     });
+    test('adds officeCount property to multiple objects', () => {
+      const input = [
+        {
+          member_id: '41797',
+          person_id: '11500',
+          name: 'Theresa Villiers',
+          party: 'Conservative',
+          constituency: 'Chipping Barnet',
+          office: [
+            {
+              dept: 'National Security Strategy (Joint Committee)',
+              position: 'Member',
+              from_date: '2017-10-30',
+              to_date: '9999-12-31',
+            },
+          ],
+        },
+        {
+          member_id: '41460',
+          person_id: '10259',
+          name: 'David Hanson',
+          party: 'Labour',
+          constituency: 'Delyn',
+          office: [
+            {
+              dept: 'Panel of Chairs',
+              position: 'Member',
+              from_date: '2017-06-22',
+              to_date: '9999-12-31',
+            },
+            {
+              dept: 'Justice Committee',
+              position: 'Member',
+              from_date: '2017-09-11',
+              to_date: '9999-12-31',
+            },
+            {
+              dept: 'Intelligence and Security Committee of Parliament',
+              position: 'Member',
+              from_date: '2017-11-16',
+              to_date: '9999-12-31',
+            },
+          ],
+        },
+      ]
+      const output = [
+        {
+          member_id: '41797',
+          person_id: '11500',
+          name: 'Theresa Villiers',
+          party: 'Conservative',
+          constituency: 'Chipping Barnet',
+          office: [
+            {
+              dept: 'National Security Strategy (Joint Committee)',
+              position: 'Member',
+              from_date: '2017-10-30',
+              to_date: '9999-12-31',
+            },
+          ],
+          officeCount: 1
+        },
+          {
+          'member_id': '41460',
+          'person_id': '10259',
+          'name': 'David Hanson',
+          'party': 'Labour',
+          'constituency': 'Delyn',
+          'office': [
+            {
+              'dept': 'Panel of Chairs',
+              'position': 'Member',
+              'from_date': '2017-06-22',
+              'to_date': '9999-12-31'
+            },
+            {
+              'dept': 'Justice Committee',
+              'position': 'Member',
+              'from_date': '2017-09-11',
+              'to_date': '9999-12-31'
+            },
+            {
+              'dept': 'Intelligence and Security Committee of Parliament',
+              'position': 'Member',
+              'from_date': '2017-11-16',
+              'to_date': '9999-12-31'
+            }
+          ],
+          officeCount : 3
+        },
+      ]
+      expect(addOfficeCounts(input)).toEqual(output)
+    });
   });
 });
