@@ -12,4 +12,8 @@ describe('herdTheBabies stuff', () => {
     it('should sort a string of 2 characters with uppercase first', () => {
         expect(herdTheBabies('aA')).toEqual('Aa')
     });
+
+    it('should sort a string of three characters where using two different letters', () => {
+        expect(herdTheBabies('aBA')).toEqual('AaB')
+    });
 });
