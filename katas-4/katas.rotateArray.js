@@ -1,4 +1,4 @@
-function rotateArray() {
+function rotateArray(input) {
     return []
 }
 
