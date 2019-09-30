@@ -21,4 +21,11 @@ describe.only('rotateArray()', () => {
         let rotateBy = 1
         expect(rotateArray(inputArray, rotateBy)).toEqual([3, 1, 2])
     });
+
+    it('should rotate the array by any positive multiple number to the right', () => {
+        let inputArray = [1, 2, 3, 4, 5]
+        expect(rotateArray(inputArray, 2)).toEqual([4, 5, 1, 2, 3])
+        expect(rotateArray(inputArray, 3)).toEqual([3, 4, 5, 1, 2])
+        expect(rotateArray(inputArray, 4)).toEqual([2, 3, 4, 5, 1])
+    });
 });
