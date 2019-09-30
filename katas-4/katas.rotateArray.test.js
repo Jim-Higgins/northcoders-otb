@@ -28,4 +28,10 @@ describe.only('rotateArray()', () => {
         expect(rotateArray(inputArray, 3)).toEqual([3, 4, 5, 1, 2])
         expect(rotateArray(inputArray, 4)).toEqual([2, 3, 4, 5, 1])
     });
+
+    it('should rotate the array by -1 to the left', () => {
+        let inputArray = [1, 2, 3]
+        let rotateBy = -1
+        expect(rotateArray(inputArray, rotateBy)).toEqual([2, 3, 1])
+    });
 });
