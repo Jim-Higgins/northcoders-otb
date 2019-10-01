@@ -34,4 +34,10 @@ describe.only('rotateArray()', () => {
         let rotateBy = -1
         expect(rotateArray(inputArray, rotateBy)).toEqual([2, 3, 1])
     });
+
+    it.only('should rotate the array by any negative multiple number to the left', () => {
+        let inputArray = [1, 2, 3, 4, 5]
+        expect(rotateArray(inputArray, -3)).toEqual([4, 5, 1, 2, 3])
+        // expect(rotateArray(inputArray, -4)).toEqual([5, 1, 2, 3, 4])
+    });
 });
